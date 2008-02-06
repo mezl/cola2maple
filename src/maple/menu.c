@@ -543,32 +543,32 @@ static MENU menu_list[] =
 static MENU menu_talk[] =
 {
   XoUlist, 0, M_LUSERS,
-  "Users      → 遊客名單 ←",
+  "Users      網頁編碼者列表",
 
   menu_list, PERM_BASIC, M_TMENU,
-  "ListMenu   → 設定名單 ←",
+  "ListMenu   設定編碼者列表",
 
   t_pager, PERM_BASIC, M_XMODE,
-  "Pager      → 切換呼叫 ←",
+  "Pager      切換編碼通訊器",
 
   t_cloak, PERM_CLOAK, M_XMODE,
-  "Invis      → 隱身密法 ←",
+  "Invis      網頁編碼者隱身",
 
   t_query, 0, M_QUERY,
-  "Query      → 查詢網友 ←",
+  "Query      查詢網頁編碼者",
 
   t_talk, PERM_PAGE, M_PAGE,
-  "Talk       → 情話綿綿 ←",
+  "Talk       偷偷的網頁編碼",
 
   /* Thor.990220: 改採外掛 */
   "bin/chat.so:t_chat", PERM_CHAT, - M_CHAT,
-  "ChatRoom   → 眾口鑠金 ←",
+  "ChatRoom   網頁聊天編碼區",
 
   t_display, PERM_BASIC, M_BMW,
-  "Display    → 瀏覽編碼 ←",
+  "Display    瀏覽舊網頁編碼",
 
   t_bmw, PERM_BASIC, M_BMW,
-  "Write      → 回顧編碼 ←",
+  "Write      回顧舊網頁編碼",
 
   menu_main, PERM_MENU + 'U', M_TMENU,
   "休閒聊天"

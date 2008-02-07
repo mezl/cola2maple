@@ -13,7 +13,7 @@
 extern BCACHE *bshm;
 extern UCACHE *ushm;
 
-
+int usr_list();
 /* ----------------------------------------------------- */
 /* 站務指令						 */
 /* ----------------------------------------------------- */
@@ -24,7 +24,7 @@ a_user()
 {
   int ans;
   ACCT acct;
-  t_list();
+  usr_list();
   move(1, 0);
   clrtobot();
 	
@@ -847,3 +847,67 @@ m_all()
 
   return 0;
 }
+/*
+int 
+usr_list()
+{
+  char *list;
+  FILE *fp;
+  int size;
+    size = (IDLEN + 1) * rec_num(FN_SCHEMA, sizeof(SCHEMA));
+    if (list = (char *) malloc(size))
+    {
+      memset(list, 0, size);
+      make_all_list(list);
+      // now we have list
+      //do show list
+
+      free(list);
+    }
+
+  return 0;
+
+}
+
+
+static void
+show_usr_list(list)
+  char *list;		// 寄信的名單 
+{
+  char folder[64], *ptr;
+  HDR hdr;
+
+  for (ptr = list; *ptr; ptr += IDLEN + 1)
+  {
+    usr_fpath(folder, ptr, fn_dir);
+  }
+}
+*/
+int
+usr_list()
+{
+  XO *xo;
+
+  //char fpath[64];
+  //int fd;
+  /*
+  SCHEMA schema;
+
+  if ((fd = open(FN_SCHEMA, O_RDONLY)) < 0)
+    return;
+
+  while (read(fd, &schema, sizeof(SCHEMA)) == sizeof(SCHEMA))
+    add_to_list(list, schema.userid);
+
+  close(fd);
+
+  usr_fpath(fpath, cuser.userid, fn_pal);
+  */
+  xz[XZ_PAL - XO_ZONE].xo = xo = xo_new(FN_SCHEMA);
+  xo->key = PALTYPE_PAL;
+  xover(XZ_PAL);
+  free(xo);
+
+  return 0;
+}
+

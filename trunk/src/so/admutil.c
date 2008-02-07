@@ -12,7 +12,8 @@
 
 extern BCACHE *bshm;
 extern UCACHE *ushm;
-
+extern XZ xz[];
+extern char xo_pool[];
 int usr_list();
 /* ----------------------------------------------------- */
 /* ¯¸°È«ü¥O						 */

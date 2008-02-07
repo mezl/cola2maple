@@ -92,7 +92,7 @@ transbrd(bh)
   if (dashd(buf))
   {
     printf("%s 已經有此看板\n", bh->brdname);
-    return;
+    //return;
   }
 
   if (!stamp)
@@ -132,7 +132,7 @@ transbrd(bh)
   /* 轉換文章 */
 
   sprintf(index, COLABBS_BOARDS "/%s/.DIR", bh->brdname);	/* 舊的 .DIR */
-  brd_fpath(folder, newboard.brdname, ".DIR");			/* 新的 .DIR */
+  brd_fpath(folder, newboard.brdname, ".DIRx");			/* 新的 .DIR */
 
   if ((fd = open(index, O_RDONLY)) >= 0)
   {

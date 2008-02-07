@@ -224,6 +224,7 @@ pal_list(reciper)
 
   userno = 0;
 
+    List *queue;       // threads waiting in P() for the value to be > 0
   for (;;)
   {
 #ifdef HAVE_LIST
@@ -872,6 +873,17 @@ t_list()
     free(xo);
     break;
   }
+
+  return 0;
+}
+int
+usr_list()
+{
+  XO *xo;
+  xz[XZ_PAL - XO_ZONE].xo = xo = xo_new(FN_SCHEMA);
+  xo->key = PALTYPE_PAL;
+  xover(XZ_PAL);
+  free(xo);
 
   return 0;
 }

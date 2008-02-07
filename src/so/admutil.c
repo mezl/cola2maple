@@ -201,7 +201,7 @@ a_xfile()		/* 設定系統檔案 */
 int
 a_resetsys()		/* 重置 */
 {
-  switch (vans("◎ 系統重設 1)動態看板 2)分類群組 3)指名及擋信 4)全部：[Q] "))
+  switch (vans("◎ 系統重設 1)動態看板 2)分類群組 3)指名及擋信 4)系統重開 5)全部：[Q] "))
   {
   case '1':
     system("bin/camera");
@@ -218,6 +218,10 @@ a_resetsys()		/* 重置 */
     break;
 
   case '4':
+    system("kill -1 `cat run/bmta.pid`; kill -1 `cat run/bguard.pid`");
+    break;
+
+  case '5':
     system("kill -1 `cat run/bmta.pid`; kill -1 `cat run/bguard.pid`; bin/account -nokeeplog; bin/camera");
     brh_save();
     board_main();

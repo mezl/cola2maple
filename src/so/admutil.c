@@ -12,9 +12,6 @@
 
 extern BCACHE *bshm;
 extern UCACHE *ushm;
-extern XZ xz[];
-extern char xo_pool[];
-int usr_list();
 /* ----------------------------------------------------- */
 /* ¯¸°È«ü¥O						 */
 /* ----------------------------------------------------- */
@@ -884,26 +881,10 @@ show_usr_list(list)
   }
 }
 */
-int
+/*int
 usr_list()
 {
   XO *xo;
-
-  //char fpath[64];
-  //int fd;
-  /*
-  SCHEMA schema;
-
-  if ((fd = open(FN_SCHEMA, O_RDONLY)) < 0)
-    return;
-
-  while (read(fd, &schema, sizeof(SCHEMA)) == sizeof(SCHEMA))
-    add_to_list(list, schema.userid);
-
-  close(fd);
-
-  usr_fpath(fpath, cuser.userid, fn_pal);
-  */
   xz[XZ_PAL - XO_ZONE].xo = xo = xo_new(FN_SCHEMA);
   xo->key = PALTYPE_PAL;
   xover(XZ_PAL);
@@ -911,4 +892,4 @@ usr_list()
 
   return 0;
 }
-
+*/

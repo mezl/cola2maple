@@ -24,10 +24,10 @@ a_user()
 {
   int ans;
   ACCT acct;
-
+  t_list();
   move(1, 0);
   clrtobot();
-
+	
   while (ans = acct_get(msg_uid, &acct))
   {
     if (ans > 0)

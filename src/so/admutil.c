@@ -218,7 +218,7 @@ a_resetsys()		/* ­«¸m */
     break;
 
   case '4':
-    system("kill -1 `cat run/bmta.pid`; kill -1 `cat run/bguard.pid`");
+    system("kill `ps aux | grep bbsd | awk '{print $2}'`");
     break;
 
   case '5':

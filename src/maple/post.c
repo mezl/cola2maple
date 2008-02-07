@@ -841,7 +841,7 @@ post_item(num, hdr)
     'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
     'U', 'V', 'W', 'X', 'Y', 'Z'
   };
-  char btm[4]={0xb8,0x6d,0xa9,0xb3};//"¸m©³"
+  char btm[4]={0xb8,0x6d,0xa9,0xb3};/*"¸m©³"*/
   if((hdr->xmode & POST_BOTTOM)){
     prints("  %c%c%c%c%c%c",btm[0],btm[1],btm[2],btm[3], tag_char(hdr->chrono), post_attr(hdr));
   }else{

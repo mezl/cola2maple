@@ -1985,7 +1985,7 @@ post_score(xo)
 {
   HDR *hdr;
   int pos, cur, ans, vtlen, maxlen;
-  int userlen = 6;//推齊預設長度
+  int userlen = 8;//推齊預設長度
   char *dir, *userid, *verb, fpath[64], reason[80], vtbuf[12];
   FILE *fp;
 #ifdef HAVE_ANONYMOUS

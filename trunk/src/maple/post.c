@@ -1985,6 +1985,7 @@ post_score(xo)
 {
   HDR *hdr;
   int pos, cur, ans, vtlen, maxlen;
+  int userlen = 6;//推齊預設長度
   char *dir, *userid, *verb, fpath[64], reason[80], vtbuf[12];
   FILE *fp;
 #ifdef HAVE_ANONYMOUS
@@ -2011,7 +2012,7 @@ post_score(xo)
     break;
 
   case '2':
-    verb = "2m呸";
+    verb = "2m哭";
     vtlen = 2;
     break;
 
@@ -2032,7 +2033,8 @@ post_score(xo)
     maxlen = 64 - IDLEN - vtlen;
   else
 #endif
-    maxlen = 64 - strlen(cuser.userid) - vtlen;
+    maxlen = 64 - (strlen(cuser.userid) > userlen ? strlen(cuser.userid) :userlen) - vtlen;
+//mezl:如果超過預設長度就不推齊
 
   if (!vget(b_lines, 0, "請輸入理由：", reason, maxlen, DOECHO))
     return XO_FOOT;
@@ -2063,9 +2065,11 @@ post_score(xo)
 
     time(&now);
     ptime = localtime(&now);
-
-    fprintf(fp, "→ \033[36m%s \033[3%s\033[m：%-*s%02d/%02d/%02d\n", 
-      userid, verb, maxlen, reason, 
+    //mezl: 增加推齊功能
+    if(strlen(userid)> userlen)
+      userlen = strlen(userid);//如果超過預設長度就設定成id長度
+    fprintf(fp, "→ \033[36m%-*s \033[3%s\033[m：%-*s%02d/%02d/%02d\n", 
+      userlen,userid, verb, maxlen, reason, 
       ptime->tm_year % 100, ptime->tm_mon + 1, ptime->tm_mday);
     fclose(fp);
   }

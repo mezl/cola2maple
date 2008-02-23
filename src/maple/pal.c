@@ -224,7 +224,6 @@ pal_list(reciper)
 
   userno = 0;
 
-    List *queue;       // threads waiting in P() for the value to be > 0
   for (;;)
   {
 #ifdef HAVE_LIST

@@ -46,10 +46,10 @@ pip_levelup(success)
 
   if (success)		/* 如果成功解決升級任務，血加比較多 */
   {
-    d.maxhp += level;
-    d.maxmp += level;
-    d.maxvp += level;
-    d.maxsp += level;
+    d.maxhp += level * 2;
+    d.maxmp += level * 2;
+    d.maxvp += level * 2;
+    d.maxsp += level * 2;
     vmsg("任務完成，等級提升了");
   }
   else
@@ -281,7 +281,7 @@ badman_generate(area)
       m.armor = level * (15 + (rand() % num));
       m.dodge = level * (15 + (rand() % num));
       m.money = level * 20;				/* 錢多很多 */
-      m.exp = level * 10;				/* 經驗值多很多 */
+      m.exp = level * 50;				/* 經驗值多很多 */
       m.pic = 101 + 100 * (rand() % 5) + rand() % 3;	/* 101~501 102~502 103~503 十五選一 */
     }
     break;

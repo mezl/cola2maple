@@ -203,7 +203,7 @@ pip_practice_classA()
     d.belief = 0;
 
   /* itoc.010802: 亂數學會究極法術 */
-  if (rand() % 30 == 0)
+  if (rand() % 3 == 0)
     pip_learn_skill(-7);
 
   pip_practice_gradeup(1, class, (d.wisdom * 3 + d.immune * 2) / 1000);
@@ -238,7 +238,7 @@ pip_practice_classB()
     d.immune = 0;
 
   /* itoc.010814: 亂數學會心法 */
-  if (rand() % 10 == 0)
+  if (rand() % 2 == 0)
     pip_learn_skill(3);
 
   pip_practice_gradeup(2, class, (d.affect * 3 + d.character * 2 + d.art) / 1200);
@@ -273,7 +273,7 @@ pip_practice_classC()
     d.attack = 0;
 
   /* itoc.010802: 亂數學會治療法術 */
-  if (rand() % 10 == 0)
+  if (rand() % 2 == 0)
     pip_learn_skill(-1);
 
   pip_practice_gradeup(3, class, (d.belief * 3 + d.immune * 2 + d.wisdom) / 1200);
@@ -367,9 +367,9 @@ pip_practice_classF()
   if (pip_practice_function(6, class, 61, 62, &change1, &change2, &change3, &change4, &change5) < 0)
     return 0;
 
-  d.resist += change1;
-  d.speed += change2;
-  d.attack += change3;
+  d.resist += change1*10;
+  d.speed += change2*10;
+  d.attack += change3*50;
   d.affect -= change4;
   d.classF++;
 
@@ -377,7 +377,7 @@ pip_practice_classF()
     d.affect = 0;
 
   /* itoc.010802: 亂數學會拳法 */
-  if (rand() % 10 == 0)
+  if (rand() % 1 == 0)
     pip_learn_skill(4);
 
   pip_practice_gradeup(6, class, (d.resist * 3 + d.speed * 2 + d.attack) / 1200);

@@ -821,6 +821,46 @@ outx(str)
 	outs(cuser.username);
 	str += 3;
 	continue;
+      case 't':		/* **t 顯示Timer */
+        //Get Date after that
+        if(strlen(str)>=15){ 
+          if(str[3] =='2')//Check is start 1XXX or 2XXX year
+          {
+            int year,month,day,hour,min;
+            sscanf(str,"%*c%*ct%4d%2d%2d%2d%2d",&year,&month,&day,&hour,&min);     
+            if(year>=2008 && year<=2050)
+              if(month>=1 && month <=12)
+                if(day>=1 && day <= 31)
+                  if(hour >= 0 &&hour <=23)
+                    if(min >=0 && min <= 59)
+                {
+                  struct tm goal;
+
+                  goal.tm_year = year-1900;
+                  goal.tm_mon = month -1;
+                  goal.tm_mday = day-1;
+                  goal.tm_hour = hour-1;
+                  goal.tm_min = min -1;
+                  goal.tm_sec = 0;
+                  goal.tm_isdst = 0;
+                  time_t gt = mktime(&goal);
+                  int counter = difftime(gt,time(NULL));
+                  int days = counter / 86400;
+                  counter %= 86400;
+                  int hours = counter / 3600;
+                  counter %= 3600;
+                  int mins = counter / 60;
+                  counter %= 60;
+                  char diff[80];
+                  sprintf(diff,"%3d天%2d時%2d分%2d秒",days,hours,mins,counter); 
+                    outs(diff);
+
+                  str += 12;// **t20080818 have 11 digit        
+                }
+          }
+        }
+        str += 3;
+        continue;
       }
     }
     outc(ch);

@@ -2184,12 +2184,12 @@ ve_key:
 
 #ifdef SHOW_USER_IN_TEXT
       case Ctrl('Q'):
-	cc = vans("顯示使用者資料(1)id (2)暱稱？");
-	if (cc >= '1' && cc <= '2')
+	cc = vans("顯示使用者資料(1)id (2)暱稱 (3)Timer？");
+	if (cc >= '1' && cc <= '3')
 	{
 	  ve_char(KEY_ESC);
 	  ve_char('*');
-	  ve_char("sn"[cc - '1']);
+	  ve_char("snt"[cc - '1']);
 	}
 	ve_mode = mode | VE_FOOTER;
 	break;

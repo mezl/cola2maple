@@ -838,9 +838,9 @@ outx(str)
 
                   goal.tm_year = year-1900;
                   goal.tm_mon = month -1;
-                  goal.tm_mday = day-1;
-                  goal.tm_hour = hour-1;
-                  goal.tm_min = min -1;
+                  goal.tm_mday = day;
+                  goal.tm_hour = hour;
+                  goal.tm_min = min;
                   goal.tm_sec = 0;
                   goal.tm_isdst = 0;
                   time_t gt = mktime(&goal);
